@@ -1,4 +1,3 @@
-hashbrowns
-==========
+# hashbrowns
 
-A tiny server for shortening long URL hash state
+connect middleware and server for shortening long URL hash state
