@@ -29,6 +29,7 @@ exports = module.exports = function (opts) {
                     res.setHeader('Content-Type', 'text/plain');
                     db.save(req.body.data, function (err, key) {
                         if (!err) {
+                            res.statusCode = 201; // CREATED
                             res.end(key);
                         } else {
                             res.statusCode = 500;
@@ -42,7 +43,7 @@ exports = module.exports = function (opts) {
         },
         {
             pattern: /^\/([a-f0-9]{8})$/,
-            GET: function getData (db, match, req, res, next) {
+            GET: function getRedirect (db, match, req, res, next) {
                 db.load(match[1], function (err, data) {
                     var redirectUrl = opts.redirectUrl || "default-redirect-url";
                     if (!err) {
@@ -56,7 +57,7 @@ exports = module.exports = function (opts) {
         },
         {
             pattern: /^\/hashes\/([a-f0-9]{8})$/,
-            GET: function getRedirect (db, match, req, res, next) {
+            GET: function getData (db, match, req, res, next) {
                 db.load(match[1], function (err, data) {
                     if (!err) {
                         res.setHeader('Content-Type', 'text/plain');
