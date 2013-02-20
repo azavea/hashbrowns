@@ -30,5 +30,6 @@
     "name": "Justin Walgran",
     "email": "jwalgran@azavea.com",
     "url": "http://azavea.com"
-  }
+  },
+  "license": "MIT"
 }
