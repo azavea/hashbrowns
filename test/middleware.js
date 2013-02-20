@@ -66,7 +66,7 @@ test('POST sometext returns 201 CREATED and key', function(t, tempdir) {
 
 test('GET /d22a158c after save triggers redirect', function(t, tempdir) {
     var app = createApp(tempdir);
-    t.plan(1);
+    t.plan(2);
     app.request()
         .set('Content-Type', 'application/x-www-form-urlencoded')
         .write('data=sometext')
@@ -77,6 +77,7 @@ test('GET /d22a158c after save triggers redirect', function(t, tempdir) {
                 .get('/d22a158c')
                 .end(function(res, done) {
                     t.equal(res.statusCode, 302);
+                    t.equal(res.headers['location'], 'http://example.com#sometext');
                     done();
                 });
         });
