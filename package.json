@@ -1,6 +1,6 @@
 {
   "name": "hashbrowns",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "connect middleware and server for shortening long URL hash state",
   "main": "./index.js",
   "keywords": [
